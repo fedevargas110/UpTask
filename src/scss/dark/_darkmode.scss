@@ -1,0 +1,132 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+@media (prefers-color-scheme: dark) {
+    $grisOscuro: #2c2c3b;
+    body {
+        background-color: $grisOscuro;
+    }
+
+    // SECTOR LOGIN
+    .tagline,
+    .formulario label,
+    .login .acciones a,
+    .crear .acciones a,
+    .olvide .acciones a {
+        color: v.$blanco;
+    }
+
+    .descripcion-pagina,
+    .formulario .campo input,
+    .nombre-pagina {
+        color: darken(v.$grisClaro, 10%);
+    }
+ 
+    .formulario .campo input[type="email"],
+    .formulario .campo input[type="password"],
+    .formulario .campo input[type="text"] {
+        background-color: lighten($grisOscuro, 15%);
+        &::placeholder {
+            color: darken(v.$grisClaro, 20%);
+        }
+    }
+
+    .alerta.error {
+        background-color: v.$blanco;
+    }
+
+    // SECTOR DASHWOARD
+
+    .sidebar {
+        @include m.tablet {
+            background-color: darken($grisOscuro, 5%);
+        }
+        .sidebar-nav a{
+           &.activo,
+           &:hover {
+                background-color: v.$naranja;
+           }
+        }
+    }
+    
+
+    .barra-mobile,
+    .barra {
+        background-color: darken($grisOscuro, 5%);
+    }
+
+    .barra {
+        p {
+            color: v.$grisClaro;
+            span {
+                color: v.$naranja;
+            }
+        }
+        .cerrar-sesion {
+            @include m.boton(v.$naranja, v.$blanco);
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    .filtros {
+        background-color: lighten($grisOscuro, 10%);
+        h2, 
+        label {
+            color: v.$blanco;
+        }
+        input[type="radio"] {
+            accent-color: v.$naranja;
+        }
+    }
+
+    .dashboard {
+        background-color: $grisOscuro;
+
+        .enlace {
+            color: darken(v.$grisClaro, 10%);
+    
+            &:hover {
+                color: darken(v.$grisClaro, 30%);
+            }
+        }
+        .formulario .campo input[type=text],
+        .formulario .campo input[type=password] {
+            &::placeholder {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+        .formulario .campo input {
+            color: v.$blanco;
+        }
+    }
+    .listado-proyectos .proyecto {
+        background-color: lighten($grisOscuro, 20%);
+
+        &:hover {
+            background-color: lighten($grisOscuro, 5%);
+        }
+    }
+
+    .listado-tareas .tarea {
+        background-color: lighten($grisOscuro, 10%);
+        border: none;
+        p {
+            color: v.$blanco;
+        }
+    }
+
+    // VENTANA MODAL
+    .formulario.nueva-tarea {
+        background-color: $grisOscuro;
+        input[type="text"] {
+            border-radius: .5rem;
+            &::placeholder {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+        legend {
+            color: v.$blanco;
+        }
+    }
+}
